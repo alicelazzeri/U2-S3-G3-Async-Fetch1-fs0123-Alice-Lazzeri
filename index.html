@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const myArr = [1, 2, 3, 4, 5, 6];
+
+      const forEach = function (callback) {
+        for (let i = 0; i < myArr.length; i++) {
+          const element = myArr[i];
+          callback(element);
+        }
+      };
+      myArr.forEach(function (num) {
+        console.log("Here's your number sir: " + num);
+      });
+
+      const greet = function (callback) {
+        const str = "Hello";
+
+        callback(str);
+      };
+
+      console.log(greet);
+
+      const myPromise = () =>
+        new Promise((resolve, reject) => {
+          const randTime = Math.floor(Math.random() * 3000);
+          const randTime2 = Math.floor(Math.random() * 3000);
+
+          setTimeout(() => {
+            resolve("SUCCESS!!! " + randTime);
+          }, randTime);
+
+          setTimeout(() => {
+            reject("REJECT!!! " + randTime2);
+          }, randTime2);
+        });
+
+      myPromise()
+        .then(resolveMessage => console.log(resolveMessage))
+        .catch(errMessage => console.warn(errMessage));
+    </script>
+  </body>
+</html>
